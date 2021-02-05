@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import Head from 'next/head'
+import ArticleList from '../components/ArticleList'
 
-function Home() {
+export default function Home({ articles }) {
     return (
         <div>
-            <h1>Pagina iasdasdasnicial</h1>
-            <Contador />
+        <Head>
+            <title>Pagina Home</title>
+        </Head>
+            <ArticleList articles={articles}/>
         </div>
     )
 }
@@ -24,4 +28,14 @@ function Contador() {
     )
 }
 
-export default Home
+export const getStaticProps = async () => {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`)
+
+    const articles = await res.json()
+
+    return {
+        props: {
+            articles
+        }
+    }
+}
