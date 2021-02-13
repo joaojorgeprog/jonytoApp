@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <Header />
       <main className={styles.main}>
-        <h1 className={styles.title}>{process.env.GITHUB_ID} in Next.js app using Next-Auth</h1>
+        <h1 className={styles.title}>{process.env.CI} in Next.js app using OLARE</h1>
         <div className={styles.user}>
           {loading && <div className={styles.title}>Loading...</div>}
           {session && <> <p style={{ marginBottom: '10px' }}> Welcome, {session.user.name ?? session.user.email}</p> <br />
