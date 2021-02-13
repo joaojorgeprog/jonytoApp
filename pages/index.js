@@ -1,27 +1,22 @@
-import { useState } from 'react';
+import Head from 'next/head'
+import Header from '../components/Header'
+import styles from '../styles/Home.module.css'
 
-function Home() {
-    return (
-        <div>
-        <h1>{process.env.GITHUB_ID}asdasd</h1>
-            <Contador />
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Nextjs | Next-Auth</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+    <Header />
+      <main className={styles.main}>
+         <h1 className={styles.title}>Authentication in Next.js app using Next-Auth</h1>
+        <div className={styles.user}>
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="" className={styles.avatar}/>
+
         </div>
-    )
+      </main>
+    </div>
+  )
 }
-
-function Contador() {
-    const [contador, setContador] = useState(1);
-
-    function adicionarContador() {
-        setContador(contador + 1);
-    }
-
-    return (
-        <div>
-            <div>{contador}</div>
-            <button onClick={adicionarContador} >Adicionar</button>
-        </div>
-    )
-}
-
-export default Home
